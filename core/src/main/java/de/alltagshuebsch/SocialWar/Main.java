@@ -29,21 +29,27 @@ public class Main implements ApplicationListener {
     public void create() {
         sBackground = new Sprite(new Texture("map/Background.png"));
         sBackground.setSize(5,5);
+        sBackground.setPosition(1.5F,0.5F);
         sBotland = new Sprite(new Texture("map/Botland.png"));
         sBotland.setSize(5,5);
+        sBotland.setPosition(1.5F,0.5F);
         sEmpoeristan = new Sprite(new Texture("map/Empoeristan.png"));
         sEmpoeristan.setSize(5,5);
+        sEmpoeristan.setPosition(1.5F,0.5F);
         sGrosspessimistien = new Sprite(new Texture("map/Grosspessimistien.png"));
         sGrosspessimistien.setSize(5,5);
+        sGrosspessimistien.setPosition(1.5F,0.5F);
         sIdealien = new Sprite(new Texture("map/Idealien.png"));
         sIdealien.setSize(5,5);
+        sIdealien.setPosition(1.5F,0.5F);
         sVerschwoernica = new Sprite(new Texture("map/Verschwoernica.png"));
         sVerschwoernica.setSize(5,5);
+        sVerschwoernica.setPosition(1.5F,0.5F);
 
 
 
         spriteBatch = new SpriteBatch();
-        viewport = new FitViewport(5,5);
+        viewport = new FitViewport(8,6);
     }
 
     @Override
@@ -69,7 +75,7 @@ public class Main implements ApplicationListener {
     }
 
     private void draw(){
-        ScreenUtils.clear(Color.BLACK);
+        ScreenUtils.clear(Color.valueOf("A6A6A6"));
         viewport.apply();
 
         spriteBatch.setProjectionMatrix(viewport.getCamera().combined);
