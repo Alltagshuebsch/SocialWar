@@ -15,13 +15,6 @@ import org.w3c.dom.Text;
 public class Main implements ApplicationListener {
 
     //Definieren, aber nicht deklarieren, da erst LibGDX geladen werden muss
-    Texture mapBackground;
-    Texture mapBotland;
-    Texture mapEmpoeristan;
-    Texture mapGrosspessimistien;
-    Texture mapIdealien;
-    Texture mapVerschwoernica;
-
     Sprite sBackground;
     Sprite sBotland;
     Sprite sEmpoeristan;
