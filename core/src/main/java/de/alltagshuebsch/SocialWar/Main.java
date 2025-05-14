@@ -15,42 +15,61 @@ import org.w3c.dom.Text;
 public class Main implements ApplicationListener {
 
     //Definieren, aber nicht deklarieren, da erst LibGDX geladen werden muss
-    Texture mapBackground;
-    Texture mapBotland;
-    Texture mapEmpoeristan;
-    Texture mapGrosspessimistien;
-    Texture mapIdealien;
-    Texture mapVerschwoernica;
-
-    Sprite sBackground;
-    Sprite sBotland;
-    Sprite sEmpoeristan;
-    Sprite sGrosspessimistien;
-    Sprite sIdealien;
-    Sprite sVerschwoernica;
+    //Endgültige Grafiken
+    Sprite sMap;
+    Sprite sLeiste;
+    Sprite sLeiste2;
+    Sprite sPlayerInt;
+    Sprite sVillainInt;
+    Sprite sBtnBotland;
+    Sprite sBtnEmpoeristan;
+    Sprite sBtnGrosspessimistien;
+    Sprite sBtnIdealien;
+    Sprite sBtnVerschwoernica;
 
     SpriteBatch spriteBatch;
     FitViewport viewport;
 
     @Override
     public void create() {
-        sBackground = new Sprite(new Texture("map/Background.png"));
-        sBackground.setSize(5,5);
-        sBotland = new Sprite(new Texture("map/Botland.png"));
-        sBotland.setSize(5,5);
-        sEmpoeristan = new Sprite(new Texture("map/Empoeristan.png"));
-        sEmpoeristan.setSize(5,5);
-        sGrosspessimistien = new Sprite(new Texture("map/Grosspessimistien.png"));
-        sGrosspessimistien.setSize(5,5);
-        sIdealien = new Sprite(new Texture("map/Idealien.png"));
-        sIdealien.setSize(5,5);
-        sVerschwoernica = new Sprite(new Texture("map/Verschwoernica.png"));
-        sVerschwoernica.setSize(5,5);
 
+        //Hintergrund und Interface
+        sMap = new Sprite(new Texture("map.png"));
+        sMap.setSize(1024,600);
+        sMap.setPosition(0,0);
+
+        sLeiste = new Sprite(new Texture("leiste.png"));
+        sLeiste.setSize(585,34);
+        sLeiste.setPosition((float) (1024 - 585) /2,25);
+        sLeiste2 = new Sprite(new Texture("leiste.png"));
+        sLeiste2.setSize(585,34);
+        sLeiste2.setPosition((float) (1024 - 585) /2,600-34-25);
+        sPlayerInt = new Sprite(new Texture("player_Interface.png"));
+        sPlayerInt.setSize(186,549);
+        sPlayerInt.setPosition(20,25);
+        sVillainInt = new Sprite(new Texture("villain_Interface.png"));
+        sVillainInt.setSize(186,549);
+        sVillainInt.setPosition(1004-186,25);
+        //Die Schriftbuttons
+        sBtnBotland = new Sprite(new Texture("btnBotland.png"));
+        sBtnBotland.setSize(128,30);
+        sBtnBotland.setPosition(1024-650,190);
+        sBtnEmpoeristan = new Sprite(new Texture("btnEmpoeristan.png"));
+        sBtnEmpoeristan.setSize(146,31);
+        sBtnEmpoeristan.setPosition(260,600-155);
+        sBtnIdealien = new Sprite(new Texture("btnIdealien.png"));
+        sBtnIdealien.setSize(124,31);
+        sBtnIdealien.setPosition(580,255);
+        sBtnVerschwoernica = new Sprite(new Texture("btnVerschwoernica.png"));
+        sBtnVerschwoernica.setSize(165,31);
+        sBtnVerschwoernica.setPosition(440,435);
+        sBtnGrosspessimistien = new Sprite(new Texture("btnGrosspessimistien.png"));
+        sBtnGrosspessimistien.setSize(196,31);
+        sBtnGrosspessimistien.setPosition(350,347);
 
 
         spriteBatch = new SpriteBatch();
-        viewport = new FitViewport(5,5);
+        viewport = new FitViewport(1024,600);
     }
 
     @Override
@@ -76,19 +95,25 @@ public class Main implements ApplicationListener {
     }
 
     private void draw(){
-        ScreenUtils.clear(Color.BLACK);
+        ScreenUtils.clear(Color.valueOf("98C0C4"));
         viewport.apply();
 
         spriteBatch.setProjectionMatrix(viewport.getCamera().combined);
         spriteBatch.begin();
-            //Hier wird Zeug gezeichnet
-        sBackground.draw(spriteBatch);
-        sBotland.draw(spriteBatch);
-        sVerschwoernica.draw(spriteBatch);
-        sIdealien.draw(spriteBatch);
-        sGrosspessimistien.draw(spriteBatch);
-        sEmpoeristan.draw(spriteBatch);
 
+            //Hier wird Zeug gezeichnet
+        sMap.draw(spriteBatch);
+        sBtnBotland.draw(spriteBatch);
+        sBtnEmpoeristan.draw(spriteBatch);
+        sBtnIdealien.draw(spriteBatch);
+        sBtnVerschwoernica.draw(spriteBatch);
+        sBtnGrosspessimistien.draw(spriteBatch);
+        sLeiste.draw(spriteBatch);
+        sLeiste2.draw(spriteBatch);
+        sVillainInt.draw(spriteBatch);
+        sPlayerInt.draw(spriteBatch);
+
+            //Hier nicht mehr
         spriteBatch.end();
     }
 
